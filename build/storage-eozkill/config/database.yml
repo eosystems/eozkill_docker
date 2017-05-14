@@ -1,18 +1,18 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: eobackbone_development
+  database: eozkill_development
   pool: 5
   timeout: 5000
   username: root
   password:
   collation: utf8_bin
-  url: mysql2://root:password@mysql-eobackbone:3306
+  url: mysql2://root:password@mysql-eozkill:3306
 
 test:
   adapter: mysql2
   encoding: utf8
-  database: eobackbone_test
+  database: eozkill_test
   pool: 5
   timeout: 5000
   username: root
@@ -22,11 +22,10 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: eobackbone
+  database: eozkill
   pool: 5
   timeout: 5000
-  username: TODO
-  password: TODO
-  host: TODO
-  socket: /var/run/mysqld-default/mysqld.sock
+  username: root
+  password:
+  url: mysql2://root:password@mysql-eozkill:3306
   collation: utf8_bin
