@@ -7,6 +7,8 @@ services:
       - storage-mysql
     ports:
       - "13506:3306"
+    networks:
+      - kibana_net
     container_name: mysql-eozkill
     build: build/mysql-eozkill
     environment:
