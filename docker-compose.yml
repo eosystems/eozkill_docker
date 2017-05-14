@@ -24,6 +24,10 @@ services:
     volumes_from:
       - storage-eozkill
     container_name: app-eozkill
+    networks:
+      - kibana_net
+    depends_on:
+      - elasticsearch
     build:
       context: build/eozkill
       args:
