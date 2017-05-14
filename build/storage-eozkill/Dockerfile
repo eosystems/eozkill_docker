@@ -1,16 +1,12 @@
 FROM bash
 MAINTAINER chato <quick.xp@gmail.com>
 
-RUN mkdir -p /data/eobackbone
-RUN mkdir -p /data/eobackbone/config
-RUN mkdir /data/eobackbone/unicorn
+RUN mkdir -p /data/eozkill
+RUN mkdir -p /data/eozkill/config
 
-WORKDIR /data/eobackbone
-VOLUME /data/eobackbone
-VOLUME /var/www/eobackbone/current/public
-VOLUME /var/www/eobackbone/current/log
+WORKDIR /data/eozkill
+VOLUME /data/eozkill
 
-COPY config/* /data/eobackbone/config/
-COPY config/.keep /data/eobackbone/unicorn/
+COPY config/* /data/eozkill/config/
 
 CMD ["/usr/local/bin/bash"]
