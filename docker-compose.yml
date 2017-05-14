@@ -40,7 +40,9 @@ services:
     container_name: storage-eozkill
 
   elasticsearch:
-    build: es
+    build: build/es
+    image: eosystems/es-eozkill
+    container_name: es-eozkill
     volumes:
         - es-data:/usr/share/elasticsearch/data
     ports:
@@ -52,7 +54,9 @@ services:
             soft: 65536
             hard: 65536
   kibana:
-    build: kibana
+    build: build/kibana
+    image: eosystems/kibana-eozkill
+    container_name: kibana-eozkill
     links:
         - elasticsearch:elasticsearch
     ports:
