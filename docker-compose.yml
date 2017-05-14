@@ -1,0 +1,40 @@
+version: '2'
+services:
+  mysql:
+    tty: true
+    image: eosystems/mysql-eozkill
+    volumes_from:
+      - storage-mysql
+    ports:
+      - "13506:3306"
+    container_name: mysql-eozkill
+    build: build/mysql-eozkill
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+  storage-mysql:
+    tty: true
+    image: eosystems/storage-mysql-eozkill
+    #build: build/storage-mysql-eozkill
+    container_name: storage-mysql-eozkill
+
+  eozkill:
+    #tty: true
+    image: eosystems/eozkill
+    volumes_from:
+      - storage-eozkill
+    container_name: app-eozkill
+    build:
+      context: build/eozkill
+      args:
+        gitbranch: "master"
+    ports:
+      - "13200:3000"
+    links:
+      - mysql
+
+  storage-eozkill:
+    tty: true
+    image: eosystems/storage-eozkill
+    #build: build/storage-eozkill
+    container_name: storage-eozkill
