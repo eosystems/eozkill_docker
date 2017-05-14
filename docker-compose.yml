@@ -41,10 +41,9 @@ services:
 
   elasticsearch:
     build: build/es
-    image: eosystems/es-eozkill
-    container_name: es-eozkill
     volumes:
         - es-data:/usr/share/elasticsearch/data
+        - ./build/es/config:/usr/share/elasticsearch/config
     ports:
         - 9200:9200
     expose:
@@ -55,8 +54,6 @@ services:
             hard: 65536
   kibana:
     build: build/kibana
-    image: eosystems/kibana-eozkill
-    container_name: kibana-eozkill
     links:
         - elasticsearch:elasticsearch
     ports:
