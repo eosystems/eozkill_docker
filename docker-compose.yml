@@ -102,7 +102,7 @@ services:
         max-file: "10"
 
 volumes:
-  es_data1:
+  es_data_a:
     driver: local
 
 networks:
