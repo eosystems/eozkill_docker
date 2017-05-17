@@ -57,7 +57,7 @@ services:
       - xpack.watcher.enabled=false
       - xpack.graph.enabled=false
       - xpack.monitoring.history.duration=1d
-      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
@@ -65,12 +65,12 @@ services:
       nofile:
         soft: 65536
         hard: 65536
-    mem_limit: 2g
-    memswap_limit: 2g
+    mem_limit: 1g
+    memswap_limit: 1g
     cap_add:
       - IPC_LOCK
     volumes:
-      - es_data1:/usr/share/elasticsearch/data1
+      - es_data_a:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
     networks:
@@ -91,8 +91,8 @@ services:
      - 5601:5601
     networks:
       - kibana_net
-    mem_limit: 2g
-    memswap_limit: 2g
+    mem_limit: 1g
+    memswap_limit: 1g
     depends_on:
       - elasticsearch
     logging:
