@@ -71,6 +71,7 @@ services:
       - IPC_LOCK
     volumes:
       - es_data_a:/usr/share/elasticsearch/data
+      #- ~/005_Other:/home
     ports:
       - 9200:9200
     networks:
